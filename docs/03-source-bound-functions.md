@@ -49,7 +49,23 @@ Each result must record:
 - rationale or matched criterion;
 - escalation state.
 
-## Candidate signatures
+## Rule-version lifecycle
+
+A determination is valid only in relation to the rule version recorded with it.
+
+When Origin issues a newer active rule version:
+
+1. The prior result remains preserved as a historical record.
+2. The prior result becomes **stale for current use**.
+3. It becomes current again only if Origin explicitly reaffirms it or the case is re-adjudicated under the active rule version.
+4. An Operator may not automatically migrate, grandfather, or carry forward the old result.
+5. When the effect of the version change is not specified, the Operator must return `UNRESOLVED` and escalate to Origin.
+
+The rule version is therefore not decorative metadata. It defines the rule context under which the determination was produced and whether that determination may govern current use.
+
+## Initial example signatures
+
+These are examples, not a complete list of possible source-bound functions.
 
 ```text
 derivative_authorization(work | ORIGIN, derivative_rule_version)
@@ -70,3 +86,5 @@ boundary_check(candidate | ORIGIN, boundary_rule_version)
 drift_check(output | ORIGIN, drift_rule_version)
   → ALIGNED | DRIFTED | UNRESOLVED
 ```
+
+Origin may define, revise, separate, or retire functions as the architecture develops. Every added function must preserve the fixed Origin dependency, closed outputs, mandatory decline, traceability, and escalation path.
