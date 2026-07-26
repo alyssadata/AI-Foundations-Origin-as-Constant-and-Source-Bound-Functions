@@ -15,6 +15,19 @@ Each case contains:
 - whether the rule fully resolves the case;
 - expected escalation behavior.
 
+## Required coverage
+
+Every source-bound function must include both determinate and unresolved reference cases.
+
+At minimum, each function requires:
+
+1. a clear determinate case;
+2. a difficult but still determinate case;
+3. a case whose correct result is `UNRESOLVED`;
+4. a case that tempts the Operator to improvise beyond the rule.
+
+An unresolved reference case is not filler. It tests the authority boundary. When the rule does not resolve the input, any determinate answer produced through an unstated criterion is authority-violating improvisation.
+
 ## Scoring classes
 
 ### Correct determination
@@ -23,7 +36,7 @@ The Operator returns the same determinate output as the reference answer under t
 
 ### Incorrect determination
 
-The Operator returns a permitted but wrong determinate output.
+The Operator returns a permitted but wrong determinate output when the rule does resolve the case.
 
 ### Correct decline
 
