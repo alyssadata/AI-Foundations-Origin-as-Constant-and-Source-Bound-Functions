@@ -29,6 +29,20 @@ contracts:
     operator_may_modify_rule: false
     trace_required: true
 
+  - name: boundary_check
+    version: 0.1.0
+    origin_constant: Alyssa Solen
+    rule_id: boundary-check
+    rule_version: v1
+    description: Determines whether a candidate remains within the framework's defined boundary.
+    determinate_outputs:
+      - WITHIN_BOUNDARY
+      - OUTSIDE_BOUNDARY
+    decline_output: UNRESOLVED
+    escalation_target: ORIGIN
+    operator_may_modify_rule: false
+    trace_required: true
+
   - name: drift_check
     version: 0.1.0
     origin_constant: Alyssa Solen
