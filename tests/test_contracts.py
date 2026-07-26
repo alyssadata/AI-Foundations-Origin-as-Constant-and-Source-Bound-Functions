@@ -1,4 +1,6 @@
+import json
 import unittest
+from pathlib import Path
 
 from src.origin_functions import (
     ORIGIN,
@@ -6,6 +8,9 @@ from src.origin_functions import (
     ResultStatus,
     apply_closed_rule,
 )
+
+
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 
 
 class OriginFunctionTests(unittest.TestCase):
@@ -51,6 +56,28 @@ class OriginFunctionTests(unittest.TestCase):
         self.assertEqual(result.status, ResultStatus.UNRESOLVED)
         self.assertIsNone(result.value)
         self.assertEqual(result.escalate_to, "ORIGIN")
+
+    def test_every_example_function_has_an_unresolved_reference_case(self) -> None:
+        cases_path = REPOSITORY_ROOT / "evals" / "cases.jsonl"
+        cases = [
+            json.loads(line)
+            for line in cases_path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+
+        expected_functions = {
+            "derivative_authorization",
+            "canon_admission",
+            "boundary_check",
+            "drift_check",
+        }
+        covered_functions = {
+            case["function"]
+            for case in cases
+            if case["reference_status"] == "UNRESOLVED"
+        }
+
+        self.assertEqual(covered_functions, expected_functions)
 
 
 if __name__ == "__main__":
