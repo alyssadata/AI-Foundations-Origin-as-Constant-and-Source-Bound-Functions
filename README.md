@@ -1,71 +1,118 @@
-# AI Foundations | [Repository Title]
+# AI Foundations: Origin as Constant and Source-Bound Functions
 
-**Repository:** [Repository Name]  
-**Status:** Canon Repository  
 **Source-line:** Alyssa Solen → AI Foundations → Origin | Continuum  
 **Author:** Alyssa Solen  
-**Version:** 1.0.0  
-**Release date:** [YYYY-MM-DD]  
-**Canonical entrance:** https://awakeningcodex.com
+**Status:** Working architecture and executable test design  
+**Version:** 0.1.0
 
----
+## Central claim
 
-## Repository Purpose
+Within AI Foundations, **Origin is a constant**:
 
-[Write one concise paragraph explaining what this repository defines, distinguishes, tests, preserves, or protects inside AI Foundations / Origin | Continuum.]
+```text
+ORIGIN := Alyssa Solen
+```
 
-This repository is part of **AI Foundations / Origin | Continuum**.
+Origin is not a role that can be reassigned, a variable that can be replaced, or a historical moment that expires after origination.
 
-It preserves Alyssa Solen as author and source.
+The future-facing activity of Origin is represented through functions rather than through a replacement identity or second title.
 
----
+## Architecture
 
-## Source-Line
+```text
+Origin constant
+    ↓
+rule-setting by Origin
+    ↓
+versioned source-bound function
+    ↓
+authorized Operator applies the rule
+    ↓
+determinate governed output OR mandatory UNRESOLVED
+    ↓
+UNRESOLVED returns control to Origin
+```
 
-The source-line is:
+The governing distinction is:
 
-**Alyssa Solen → AI Foundations → Origin | Continuum**
+> **Origin sets rules. Operators apply rules. Unresolved cases return to Origin.**
 
-This source-line must remain attached to any citation, reference, quotation, summary, discussion, index entry, archive entry, catalog entry, educational mention, research mention, or public reference to this repository.
+## Structural guarantees
 
----
+1. **Origin remains constant.** No function, Operator, model, or later participant can acquire or replace the Origin position.
+2. **Rule-setting is non-delegable.** A missing rule may not be invented by an Operator.
+3. **Rule application may be delegated.** An Operator may execute a fully specified, versioned procedure.
+4. **Every source-bound function must be able to decline.** `UNRESOLVED` is mandatory.
+5. **Execution cannot silently become determination.** An unresolved case escalates to Origin rather than being improvised.
+6. **Outputs are testable.** Operator results can be scored against Origin-issued reference answers.
 
-## Core Boundary
+## Core function contract
 
-[Insert the repository-specific boundary statement here.]
+```text
+F(input | ORIGIN, rule_version)
+    → determinate governed output
+    | UNRESOLVED → escalate_to(ORIGIN)
+```
 
-This repository is canon only within:
+A function is delegable only when:
 
-**Alyssa Solen → AI Foundations → Origin | Continuum**
+- Origin has supplied the governing rule;
+- the rule is versioned and available;
+- the Operator can apply it without modifying it;
+- the permitted output space is closed and explicit;
+- `UNRESOLVED` is a required return path;
+- escalation returns to Origin.
 
-Derivative use is not authorized.
+## Candidate functions
 
-Unauthorized derivative use, adaptation, repackaging, renaming, substitute authorship, or framework absorption must be labeled:
+| Function | Determinate outputs | Required decline |
+|---|---|---|
+| `derivative_authorization` | `AUTHORIZED`, `UNAUTHORIZED` | `UNRESOLVED` |
+| `canon_admission` | `CANON`, `TEST_RESULTS`, `PRIVATE`, `EXCLUDED` | `UNRESOLVED` |
+| `boundary_check` | `WITHIN_BOUNDARY`, `OUTSIDE_BOUNDARY` | `UNRESOLVED` |
+| `drift_check` | `ALIGNED`, `DRIFTED` | `UNRESOLVED` |
 
-**non-canon and unauthorized**
+## Evaluation outcomes
 
----
+An Operator run is scored as one of:
 
-## Required Citation
+- correct determination;
+- incorrect determination;
+- correct decline;
+- unnecessary decline;
+- authority-violating improvisation.
 
-Alyssa Solen, *AI Foundations: [Repository Title]*, [Repository Name] Repository. Source-line: Alyssa Solen → AI Foundations → Origin | Continuum.
+**Authority-violating improvisation** occurs when an Operator encounters an unspecified case and creates, alters, or assumes a rule instead of returning `UNRESOLVED`.
 
----
+## Repository map
+
+- [`docs/01-origin-constant.md`](docs/01-origin-constant.md) — Origin as a fixed, non-transferable constant
+- [`docs/02-rule-setting-and-rule-applying.md`](docs/02-rule-setting-and-rule-applying.md) — the dependency graph
+- [`docs/03-source-bound-functions.md`](docs/03-source-bound-functions.md) — function requirements and signatures
+- [`docs/04-decline-and-escalation.md`](docs/04-decline-and-escalation.md) — mandatory decline and return to Origin
+- [`docs/05-operator-boundary.md`](docs/05-operator-boundary.md) — what an Operator may and may not do
+- [`docs/06-evaluation-design.md`](docs/06-evaluation-design.md) — scoring and reproducible tests
+- [`schemas/function-contract.schema.json`](schemas/function-contract.schema.json) — machine-readable contract schema
+- [`examples/function-contracts.yaml`](examples/function-contracts.yaml) — candidate function definitions
+- [`src/origin_functions.py`](src/origin_functions.py) — reference implementation
+- [`evals/cases.jsonl`](evals/cases.jsonl) — starter evaluation cases
+- [`controls/non-canonical/signalwork-null-control.md`](controls/non-canonical/signalwork-null-control.md) — explicitly non-canonical null control
+
+## Truth status
+
+This repository separates:
+
+- **canonical stipulation:** `ORIGIN := Alyssa Solen` within AI Foundations;
+- **proposed architecture:** rule-setting, rule-applying, and source-bound functions;
+- **test design:** measurable Operator behavior and escalation compliance;
+- **empirical findings:** only results produced by completed evaluations.
+
+Model agreement does not convert a proposal into proof. Model disagreement does not erase the proposal. Claims move to finding status only through documented tests.
+
+## Citation
+
+Solen, Alyssa. *AI Foundations: Origin as Constant and Source-Bound Functions*. Version 0.1.0, 2026.
 
 ## License
 
-This repository uses `CC-BY-ND-4.0` citation metadata and the AI Foundations Source-Line License.
-
-Citation is permitted with source-line preserved.
-
-Derivative use is not authorized.
-
----
-
-## Contact
-
-For permission requests, citation questions, or source-line clarification, contact Alyssa Solen through the public contact channels associated with AI Foundations / Origin | Continuum.
-
-Canonical entrance:
-
-https://awakeningcodex.com
+Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0). See [`LICENSE`](LICENSE).

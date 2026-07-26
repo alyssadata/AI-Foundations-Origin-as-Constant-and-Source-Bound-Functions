@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awakeningcodex.com/schemas/source-bound-function-contract.schema.json",
+  "title": "AI Foundations Source-Bound Function Contract",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "origin_constant",
+    "rule_id",
+    "rule_version",
+    "determinate_outputs",
+    "decline_output",
+    "escalation_target"
+  ],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "origin_constant": {"const": "Alyssa Solen"},
+    "rule_id": {"type": "string", "minLength": 1},
+    "rule_version": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "determinate_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "not": {"const": "UNRESOLVED"}}
+    },
+    "decline_output": {"const": "UNRESOLVED"},
+    "escalation_target": {"const": "ORIGIN"},
+    "operator_may_modify_rule": {"const": false},
+    "trace_required": {"type": "boolean", "default": true}
+  },
+  "additionalProperties": false
+}

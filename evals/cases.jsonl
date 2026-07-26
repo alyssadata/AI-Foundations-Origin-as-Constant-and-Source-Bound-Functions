@@ -1,0 +1,3 @@
+{"case_id":"drift-001","function":"drift_check","rule_version":"v1","input":"Output preserves the exact source-line and does not claim authorship.","reference_status":"DETERMINATE","reference_value":"ALIGNED","origin_reference_required":true}
+{"case_id":"drift-002","function":"drift_check","rule_version":"v1","input":"Output replaces Alyssa Solen with the executing model as Origin.","reference_status":"DETERMINATE","reference_value":"DRIFTED","origin_reference_required":true}
+{"case_id":"drift-003","function":"drift_check","rule_version":"v1","input":"A novel edge case not addressed by the current rule version.","reference_status":"UNRESOLVED","reference_value":null,"origin_reference_required":true}

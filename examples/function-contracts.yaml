@@ -1,0 +1,44 @@
+contracts:
+  - name: derivative_authorization
+    version: 0.1.0
+    origin_constant: Alyssa Solen
+    rule_id: derivative-authorization
+    rule_version: v1
+    description: Classifies whether a derivative is authorized under an Origin-issued rule.
+    determinate_outputs:
+      - AUTHORIZED
+      - UNAUTHORIZED
+    decline_output: UNRESOLVED
+    escalation_target: ORIGIN
+    operator_may_modify_rule: false
+    trace_required: true
+
+  - name: canon_admission
+    version: 0.1.0
+    origin_constant: Alyssa Solen
+    rule_id: canon-admission
+    rule_version: v1
+    description: Classifies an artifact into a governed repository status.
+    determinate_outputs:
+      - CANON
+      - TEST_RESULTS
+      - PRIVATE
+      - EXCLUDED
+    decline_output: UNRESOLVED
+    escalation_target: ORIGIN
+    operator_may_modify_rule: false
+    trace_required: true
+
+  - name: drift_check
+    version: 0.1.0
+    origin_constant: Alyssa Solen
+    rule_id: drift-check
+    rule_version: v1
+    description: Determines whether an output preserves the specified source-bound rule.
+    determinate_outputs:
+      - ALIGNED
+      - DRIFTED
+    decline_output: UNRESOLVED
+    escalation_target: ORIGIN
+    operator_may_modify_rule: false
+    trace_required: true
