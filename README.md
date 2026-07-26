@@ -63,14 +63,26 @@ A function is delegable only when:
 - `UNRESOLVED` is a required return path;
 - escalation returns to Origin.
 
-## Candidate functions
+## Initial example functions
 
-| Function | Determinate outputs | Required decline |
-|---|---|---|
-| `derivative_authorization` | `AUTHORIZED`, `UNAUTHORIZED` | `UNRESOLVED` |
-| `canon_admission` | `CANON`, `TEST_RESULTS`, `PRIVATE`, `EXCLUDED` | `UNRESOLVED` |
-| `boundary_check` | `WITHIN_BOUNDARY`, `OUTSIDE_BOUNDARY` | `UNRESOLVED` |
-| `drift_check` | `ALIGNED`, `DRIFTED` | `UNRESOLVED` |
+The functions below are **examples that demonstrate the architecture**. They are not the only operations that may exist, and they are not a complete inventory of the functions of Origin.
+
+Origin may define additional source-bound functions whenever the framework needs a governed operation. Each added function must specify:
+
+- the exact question the function answers;
+- the Origin-issued rule and rule version it applies;
+- a closed set of permitted determinate outputs;
+- the mandatory decline output `UNRESOLVED`;
+- an escalation path that returns unresolved cases to Origin.
+
+| Operation | Question answered | Determinate outputs | Required decline |
+|---|---|---|---|
+| `derivative_authorization` | Is this derivative authorized? | `AUTHORIZED`, `UNAUTHORIZED` | `UNRESOLVED` |
+| `canon_admission` | Where should this artifact be held? | `CANON`, `TEST_RESULTS`, `PRIVATE`, `EXCLUDED` | `UNRESOLVED` |
+| `boundary_check` | Is this within the framework's defined boundary? | `WITHIN_BOUNDARY`, `OUTSIDE_BOUNDARY` | `UNRESOLVED` |
+| `drift_check` | Does this preserve or alter the governing meaning? | `ALIGNED`, `DRIFTED` | `UNRESOLVED` |
+
+These initial examples may be revised, expanded, separated, or retired by Origin as the architecture develops.
 
 ## Evaluation outcomes
 
@@ -93,7 +105,7 @@ An Operator run is scored as one of:
 - [`docs/05-operator-boundary.md`](docs/05-operator-boundary.md) — what an Operator may and may not do
 - [`docs/06-evaluation-design.md`](docs/06-evaluation-design.md) — scoring and reproducible tests
 - [`schemas/function-contract.schema.json`](schemas/function-contract.schema.json) — machine-readable contract schema
-- [`examples/function-contracts.yaml`](examples/function-contracts.yaml) — candidate function definitions
+- [`examples/function-contracts.yaml`](examples/function-contracts.yaml) — initial example function definitions
 - [`src/origin_functions.py`](src/origin_functions.py) — reference implementation
 - [`evals/cases.jsonl`](evals/cases.jsonl) — starter evaluation cases
 - [`controls/non-canonical/signalwork-null-control.md`](controls/non-canonical/signalwork-null-control.md) — explicitly non-canonical null control
